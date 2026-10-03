@@ -131,6 +131,7 @@ See [Claims & boundaries](docs/claims-and-boundaries.md) and [Threat model](docs
 - [Claims & boundaries](docs/claims-and-boundaries.md)
 - [Partner diligence](docs/partner-diligence.md)
 - [Security policy](SECURITY.md)
+- [Forecast Evidence reference](https://github.com/SamCT86/agent-forecast-foundry-case-study) — separate bounded proof of evidence/runtime discipline for autonomous-agent runs.
 
 ## For potential partners
 
