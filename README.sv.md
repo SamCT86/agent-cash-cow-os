@@ -6,7 +6,7 @@ Betalningen kan ha lyckats även när bekräftelsen inte kom tillbaka. Ett naivt
 
 **Agent Cash Cow OS utforskar en annan princip: verifiera verkligheten först, agera sedan.**
 
-[**Testa Transaction Lab →**](https://samct86.github.io/agent-cash-cow-os/)
+[**Testa den live Transaction Lab →**](https://www.sarmadtawfeek.com/agent-cash-cow)
 
 Det här publika repot är en **syntetisk demonstrator**, inte den privata produktionsimplementationen. Det använder inga riktiga pengar, provider-credentials, kunddata, privat runtime-kod eller produktionsadaptrar.
 
