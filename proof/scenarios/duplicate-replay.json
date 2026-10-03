@@ -1,0 +1,8 @@
+{
+  "id": "duplicate-replay",
+  "authorization": "valid",
+  "payment_ack": "confirmed",
+  "provider_state": "paid",
+  "replay_attempt": true,
+  "outcome": "verified"
+}
