@@ -1,0 +1,141 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/SamCT86/agent-cash-cow-os/proof/schema/public-proof-receipt.schema.json",
+  "title": "Agent Cash Cow OS public proof receipt",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "proof_version",
+    "scenario_id",
+    "synthetic",
+    "trace_id",
+    "inputs",
+    "decision",
+    "next_safe_action",
+    "risks_prevented",
+    "stages",
+    "receipt_hash"
+  ],
+  "properties": {
+    "proof_version": {
+      "const": "acc-public-proof-v1"
+    },
+    "scenario_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "synthetic": {
+      "const": true
+    },
+    "trace_id": {
+      "type": "string",
+      "pattern": "^demo-[a-f0-9]{16}$"
+    },
+    "inputs": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "authorization",
+        "payment_ack",
+        "provider_state",
+        "replay_attempt",
+        "outcome"
+      ],
+      "properties": {
+        "authorization": {
+          "enum": [
+            "valid",
+            "expired"
+          ]
+        },
+        "payment_ack": {
+          "enum": [
+            "confirmed",
+            "timeout"
+          ]
+        },
+        "provider_state": {
+          "enum": [
+            "paid",
+            "unpaid",
+            "unknown"
+          ]
+        },
+        "replay_attempt": {
+          "type": "boolean"
+        },
+        "outcome": {
+          "enum": [
+            "verified",
+            "incomplete",
+            "failed"
+          ]
+        }
+      }
+    },
+    "decision": {
+      "enum": [
+        "STOP_BEFORE_PAYMENT",
+        "REJECT_REPLAY_CONTINUE_ORIGINAL_TRACE",
+        "RETRY_PAYMENT_ONCE",
+        "HOLD_DO_NOT_RETRY",
+        "HOLD_SETTLEMENT",
+        "SETTLE_ONCE"
+      ]
+    },
+    "next_safe_action": {
+      "type": "string",
+      "minLength": 1
+    },
+    "risks_prevented": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "stages": {
+      "type": "array",
+      "minItems": 6,
+      "maxItems": 6,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "stage",
+          "status",
+          "evidence"
+        ],
+        "properties": {
+          "stage": {
+            "enum": [
+              "request",
+              "authorization",
+              "payment",
+              "work",
+              "outcome",
+              "settlement"
+            ]
+          },
+          "status": {
+            "enum": [
+              "verified",
+              "readback",
+              "blocked",
+              "held",
+              "not-started"
+            ]
+          },
+          "evidence": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "receipt_hash": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    }
+  }
+}
