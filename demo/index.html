@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="color-scheme" content="light" />
+  <meta name="theme-color" content="#f3efe6" />
+  <meta name="description" content="Synthetic public proof lab for Agent Cash Cow OS: inspect failure handling, traces and deterministic proof receipts without exposing private production code." />
+  <title>Agent Cash Cow OS — Public Transaction Lab</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to lab</a>
+  <header class="topbar">
+    <a class="brand" href="./">Agent Cash Cow OS</a>
+    <nav aria-label="Primary">
+      <a href="#aha">Aha</a>
+      <a href="#lab">Lab</a>
+      <a href="#proof">Proof</a>
+      <a href="#boundary">Boundary</a>
+    </nav>
+    <span class="status-pill">PUBLIC PROOF · SYNTHETIC</span>
+  </header>
+
+  <main id="main">
+    <section class="hero shell">
+      <div class="hero-copy">
+        <p class="eyebrow">TRANSACTION RELIABILITY FOR AI AGENTS</p>
+        <h1>What if an AI agent pays — and the response times out?</h1>
+        <p class="lede">A naive system can mistake silence for failure and pay again. This public lab demonstrates a different operating rule: <strong>verify what happened before another economic action is allowed.</strong></p>
+        <div class="hero-actions">
+          <button class="button button-primary" data-run-guided>Run the 15-second failure</button>
+          <a class="button button-secondary" href="#proof">Inspect the proof model</a>
+        </div>
+        <div class="trust-row" aria-label="Public proof boundaries">
+          <span>✓ no real money</span>
+          <span>✓ no provider calls</span>
+          <span>✓ no private source</span>
+          <span>✓ deterministic receipts</span>
+        </div>
+      </div>
+      <aside class="hero-terminal" aria-label="Failure preview">
+        <div class="terminal-head">
+          <span>trace / timeout-after-payment</span>
+          <span class="live-dot">synthetic</span>
+        </div>
+        <ol class="mini-trace">
+          <li><span>01</span><b>PAYMENT</b><em>sent</em></li>
+          <li><span>02</span><b>ACK</b><em class="warn">timeout</em></li>
+          <li><span>03</span><b>READBACK</b><em>paid</em></li>
+          <li><span>04</span><b>RETRY</b><em class="blocked">blocked</em></li>
+        </ol>
+        <p class="terminal-result">economic action count: <strong>1</strong></p>
+      </aside>
+    </section>
+
+    <section id="aha" class="aha-band">
+      <div class="shell">
+        <p class="eyebrow light">THE 15-SECOND AHA</p>
+        <div class="aha-grid">
+          <article><span>1</span><h2>Payment happened</h2><p>The agent sent a payment successfully.</p></article>
+          <article><span>2</span><h2>Only the acknowledgement failed</h2><p>The transport timed out. That is not proof of payment failure.</p></article>
+          <article><span>3</span><h2>Read reality first</h2><p>Provider state says the payment already exists.</p></article>
+          <article><span>4</span><h2>Block the duplicate</h2><p>The original trace continues. A second payment does not.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="lab" class="lab shell">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">BREAK IT YOURSELF</p>
+          <h2>Change the failure. Watch the decision change.</h2>
+        </div>
+        <p>This demonstrator is intentionally smaller than the private system. Every input is synthetic, every result is inspectable, and every receipt is reproducible.</p>
+      </div>
+
+      <div class="scenario-row" role="group" aria-label="Scenario presets" id="scenario-presets"></div>
+
+      <div class="lab-grid">
+        <form class="control-panel" id="lab-form">
+          <div class="panel-kicker">TRANSACTION INPUTS</div>
+          <label>
+            <span>Authorization</span>
+            <small>Can this request still spend?</small>
+            <select name="authorization">
+              <option value="valid">Valid</option>
+              <option value="expired">Expired</option>
+            </select>
+          </label>
+          <label>
+            <span>Payment acknowledgement</span>
+            <small>What did the transport layer return?</small>
+            <select name="payment_ack">
+              <option value="confirmed">Confirmed</option>
+              <option value="timeout">Timeout</option>
+            </select>
+          </label>
+          <label>
+            <span>Provider readback</span>
+            <small>What state does the external provider report?</small>
+            <select name="provider_state">
+              <option value="paid">Paid</option>
+              <option value="unpaid">Unpaid</option>
+              <option value="unknown">Unknown</option>
+            </select>
+          </label>
+          <label>
+            <span>Outcome evidence</span>
+            <small>Did the agreed result pass verification?</small>
+            <select name="outcome">
+              <option value="verified">Verified</option>
+              <option value="incomplete">Incomplete</option>
+              <option value="failed">Failed</option>
+            </select>
+          </label>
+          <label class="toggle">
+            <input type="checkbox" name="replay_attempt" />
+            <span><b>Duplicate replay</b><small>Same synthetic request arrives again.</small></span>
+          </label>
+          <div class="form-actions">
+            <button class="button button-primary" type="submit">Evaluate transaction</button>
+            <button class="button button-quiet" type="button" data-reset>Reset</button>
+          </div>
+          <p class="validation" id="validation-message" role="alert" aria-live="polite"></p>
+        </form>
+
+        <section class="result-panel" id="result-panel" aria-live="polite">
+          <div class="empty-state">
+            <p class="eyebrow">READY</p>
+            <h3>Run a failure path.</h3>
+            <p>The lab will return a decision, six-stage trace, event ledger, reasons, risks prevented and a deterministic proof receipt.</p>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <section id="proof" class="proof shell">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">WHY THIS IS DIFFERENT</p>
+          <h2>Reliability is a chain of evidence, not a happy-path screenshot.</h2>
+        </div>
+        <p>The public model focuses on four mechanisms that are easy to inspect and hard to fake with marketing language.</p>
+      </div>
+      <div class="proof-grid">
+        <article><span>01</span><h3>One trace</h3><p>Request, authorization, payment, work, outcome and settlement stay attached to one synthetic identity.</p></article>
+        <article><span>02</span><h3>Read before retry</h3><p>An ambiguous transport response triggers state reconciliation instead of blind duplicate action.</p></article>
+        <article><span>03</span><h3>Fail closed</h3><p>Unknown external state and incomplete outcome evidence stop progress instead of being guessed away.</p></article>
+        <article><span>04</span><h3>Settle on evidence</h3><p>A finished work step is not treated as an accepted outcome. Settlement waits for verification.</p></article>
+      </div>
+
+      <div class="architecture">
+        <div>
+          <p class="eyebrow">PUBLIC ABSTRACTION</p>
+          <h3>Request → authority → payment → work → outcome → settlement</h3>
+          <p>The private implementation is not distributed. This public state machine exists so a skeptical reviewer can test the control philosophy without trusting a pitch.</p>
+        </div>
+        <div class="rail" aria-label="Public six-stage architecture">
+          <span>REQUEST</span><i></i><span>AUTH</span><i></i><span>PAYMENT</span><i></i><span>WORK</span><i></i><span>OUTCOME</span><i></i><span>SETTLEMENT</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="boundary" class="boundary">
+      <div class="shell boundary-grid">
+        <article class="can">
+          <p class="eyebrow light">VERIFIED HERE</p>
+          <h2>What you can inspect yourself.</h2>
+          <ul>
+            <li>Deterministic scenario decisions and traces.</li>
+            <li>Timeout → provider-readback behavior.</li>
+            <li>Replay rejection without a second synthetic economic action.</li>
+            <li>Unknown-state and outcome-evidence fail-closed paths.</li>
+            <li>Receipt hash determinism and public CI.</li>
+          </ul>
+        </article>
+        <article class="cannot">
+          <p class="eyebrow">PRIVATE BY DESIGN</p>
+          <h2>What this repository does not distribute.</h2>
+          <ul>
+            <li>Production runtime or orchestration source.</li>
+            <li>Payment-provider adapters or credentials.</li>
+            <li>Persistence, recovery or exact production policies.</li>
+            <li>Private forecast/evaluation systems or model routing.</li>
+            <li>Real customer data or real-money execution paths.</li>
+          </ul>
+          <p class="boundary-note">The repository is public because the proof layer is disposable. The private core is not.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="diligence shell">
+      <div>
+        <p class="eyebrow">PARTNER DILIGENCE</p>
+        <h2>Inspect the mechanism. Then inspect the limits.</h2>
+      </div>
+      <div class="diligence-copy">
+        <p>This public proof demonstrates engineering behavior, not market demand, forecast advantage, production-scale economics or live financial correctness.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="https://github.com/SamCT86/agent-cash-cow-os/blob/main/docs/partner-diligence.md">Open diligence notes</a>
+          <a class="button button-secondary" href="https://sarmadtawfeek.com/agent-cash-cow">See the portfolio version</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="shell footer-inner">
+      <div><b>Agent Cash Cow OS</b><span>Public proof surface · synthetic data only</span></div>
+      <a href="https://github.com/SamCT86/agent-cash-cow-os">GitHub repository</a>
+    </div>
+  </footer>
+
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
