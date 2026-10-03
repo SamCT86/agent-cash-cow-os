@@ -1,0 +1,8 @@
+{
+  "id": "unknown-provider-state",
+  "authorization": "valid",
+  "payment_ack": "timeout",
+  "provider_state": "unknown",
+  "replay_attempt": false,
+  "outcome": "verified"
+}
