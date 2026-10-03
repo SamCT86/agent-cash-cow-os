@@ -1,0 +1,14 @@
+{
+  "name": "agent-cash-cow-os-public-proof",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Synthetic public proof surface for Agent Cash Cow OS.",
+  "scripts": {
+    "test": "node --test tests/*.test.mjs",
+    "verify": "node scripts/verify-public-proof.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
