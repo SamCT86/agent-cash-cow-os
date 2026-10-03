@@ -133,6 +133,18 @@ See [Claims & boundaries](docs/claims-and-boundaries.md) and [Threat model](docs
 - [Security policy](SECURITY.md)
 - [Forecast Evidence reference](https://github.com/SamCT86/agent-forecast-foundry-case-study) — separate bounded proof of evidence/runtime discipline for autonomous-agent runs.
 
+## Commercial entry point
+
+If this proof maps to a real autonomous-agent or integration workflow, the closest current engagement is a **Reliability review**: failure, duplicate-action and handoff testing plus a prioritized action list.
+
+If the specific failure is already understood, a **Fix sprint** is the bounded implementation path: one change against a pre-agreed metric, followed by outcome verification.
+
+Start with **2–3 sentences** describing the workflow and the failure you do not trust it to survive. No technical brief, meeting, credentials or sensitive data are required to start. Scope and price are agreed before anything is ordered.
+
+[Describe the workflow by email](mailto:sarmadtawfeek@gmail.com) · [See the current engagement options](https://sarmadtawfeek.se)
+
+This is a commercial next-step path, **not** evidence of paid adoption, ROI or production-scale economics for Agent Cash Cow OS.
+
 ## For potential partners
 
 If your interest is transaction reliability, agent commerce, payment-state reconciliation, exact-once economic actions, or outcome-gated settlement, start with the [partner diligence note](docs/partner-diligence.md).
