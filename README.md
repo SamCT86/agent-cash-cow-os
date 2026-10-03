@@ -141,7 +141,7 @@ If the specific failure is already understood, a **Fix sprint** is the bounded i
 
 Start with **2–3 sentences** describing the workflow and the failure you do not trust it to survive. No technical brief, meeting, credentials or sensitive data are required to start. Scope and price are agreed before anything is ordered.
 
-Email: `sarmadtawfeek@gmail.com` · [See the current engagement options](https://sarmadtawfeek.se)
+Email: `sarmadtawfeek@gmail.com` · [See the current engagement options](https://www.sarmadtawfeek.com)
 
 This is a commercial next-step path, **not** evidence of paid adoption, ROI or production-scale economics for Agent Cash Cow OS.
 
