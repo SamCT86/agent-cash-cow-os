@@ -1,5 +1,3 @@
-[Reading 35 lines from start (total: 35 lines, 0 remaining)]
-
 # Claims and boundaries
 
 ## VERIFIED HERE
@@ -35,5 +33,3 @@ This repository does not prove:
 - any quantified reduction in financial loss.
 
 Public CI proves the public demonstrator — not the private product.
-
-[executed on device: ubuntu (a09eeb6f-1167-48b6-b141-f250676c6cc5)]
