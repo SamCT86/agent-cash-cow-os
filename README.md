@@ -1,18 +1,25 @@
 # Agent Cash Cow OS
 
-**Transaction reliability and outcome-gated settlement for AI agents — public synthetic proof surface.**
+What should an AI agent do when a payment times out?
 
-> **What if an AI agent pays — and the response times out?**
+The payment may already have gone through. Paying again could mean paying twice.
 
-The payment may have succeeded even when the acknowledgement did not. A naive retry can create a second economic action.
+I'm exploring how to handle that safely: check the payment, keep track of the original payment, and stop when the answer is still unclear.
 
-**Agent Cash Cow OS explores a different operating rule: verify reality first, then act.**
+[**Try the Transaction Lab**](https://www.sarmadtawfeek.com/agent-cash-cow)
 
-[**Try the live Transaction Lab →**](https://www.sarmadtawfeek.com/agent-cash-cow)
+Start with “Timeout after payment,” then change the inputs and see what happens.
 
-[![Verify public proof](https://github.com/SamCT86/agent-cash-cow-os/actions/workflows/verify-public-proof.yml/badge.svg)](https://github.com/SamCT86/agent-cash-cow-os/actions/workflows/verify-public-proof.yml)
+The lab uses made-up transactions. **No real money**, account or credentials are needed. It's a public demo; I keep the full system private.
 
----
+## Want to discuss a similar workflow?
+
+[Email me a few sentences](mailto:sarmadtawfeek@gmail.com) about the failure you're trying to avoid. We can start with a reliability review or one focused fix. We'll agree on scope and price before starting. Please leave out sensitive data.
+
+[Portfolio](https://www.sarmadtawfeek.com) · [GitHub profile](https://github.com/SamCT86)
+
+<details>
+<summary>Code, tests and technical details</summary>
 
 ## The 15-second failure
 
@@ -160,3 +167,5 @@ The strongest next conversation is not “what features do you have?” It is:
 **Public proof surface · synthetic data only · no real money**
 
 Portfolio: [sarmadtawfeek.com/agent-cash-cow](https://sarmadtawfeek.com/agent-cash-cow)
+
+</details>
