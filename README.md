@@ -14,7 +14,7 @@ The lab uses made-up transactions. **No real money**, account or credentials are
 
 ## Want to discuss a similar workflow?
 
-[Email me a few sentences](mailto:sarmadtawfeek@gmail.com) about the failure you're trying to avoid. We can start with a reliability review or one focused fix. We'll agree on scope and price before starting. Please leave out sensitive data.
+Email me at <sarmadtawfeek@gmail.com> with a few sentences about the failure you're trying to avoid. We can start with a reliability review or one focused fix. We'll agree on scope and price before starting. Please leave out sensitive data.
 
 [Portfolio](https://www.sarmadtawfeek.com) · [GitHub profile](https://github.com/SamCT86)
 
